@@ -1,33 +1,40 @@
 import './App.css';
 import SearchBar from './components/SearchBar'
 import SearchResults from './components/SearchResults';
-import Playlist from './components/Playlist';
 
-import {useState, useEffect} from 'react';
+import {useState} from 'react';
 import fetchList from './utils/fetchList';
+
+import data from './utils/mockData.js';
 
 
 
 const App = () => {
-  const [trackList, setTrackList] = useState([
-      'song1', 'song2', 'song3',
-      'song1', 'song2', 'song3',
-      'song1', 'song2', 'song3',
-  ])
+  const [trackList, setTrackList] = useState(data.tracks);
 
-  const [playList, setPlaylist] = useState([
-        'song1', 'song2', 'song3',
-  ])
+  const [playList, setPlaylist] = useState([]);
 
   const fetchListArray = async (searchInput, filter) => {
-    // postulations
-    const result = await fetchList(searchInput, filter); // postulste;
+    const result = await fetchList(searchInput, filter); // postulate;
 
      
      alert(searchInput + ', ' + filter) // in place of console
-
       // setListArray(result) postulate;
+  }
+
+  const updatePlayList = (track, action) => {
+    // action: 'add' | 'remove'
+    if (action === 'add') {
+      // add track to playList
+      if (!playList.find( item => item.id === track.id)) {
+        setPlaylist([...playList, track]);
+      } else { alert('Track already in playlist'); }
+    } else if (action === 'remove') {
+      // remove track from playList
+      const updatedList = playList.filter( item => item.id !== track.id);
+      setPlaylist(updatedList);
     }
+  }
 
   return (
     <>
@@ -44,7 +51,7 @@ const App = () => {
         { /* <!-- Results --> */ }
         <div className="results-playlists">
           { /* <!-- Results Div --> */ }
-          <SearchResults tracklist={trackList} playlist={playList}/>
+          <SearchResults tracklist={trackList} playlist={playList} onUpdate={updatePlayList}/>
         </div>
       </main>
 

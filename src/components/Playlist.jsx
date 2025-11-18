@@ -1,7 +1,7 @@
 import { useState } from "react";
 import { returnListOf } from "../utils/returnListOf";
 
-const Playlist = ({tracks}) => {
+const Playlist = ({tracks, onRemove}) => {
     const [hovered, setHovered] = useState(false);
 
     const changeLabelColor = () => {
@@ -12,7 +12,7 @@ const Playlist = ({tracks}) => {
         color: hovered ? 'blue' : '',
     }
 
-    const songs = returnListOf(tracks, '-', changeLabelColor);
+    const songs = returnListOf(tracks, '-', changeLabelColor, onRemove);
 
     return (
         <div>

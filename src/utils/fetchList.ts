@@ -15,7 +15,7 @@ const fetchList = async (searchInput: string, filter: string) => {
                 //return data;
             }
     } catch (error) {
-        console.log('Network is down ! n/', error)
+        console.log('Network is down! \n', error)
     }
 }
 

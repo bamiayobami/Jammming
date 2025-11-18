@@ -3,7 +3,7 @@ import {useState} from 'react';
 import { returnListOf } from '../utils/returnListOf';
 import './SearchResults.css';
 
-const Tracklist = ({tracks}) => {
+const Tracklist = ({tracks, onAdd}) => {
     const [hovered, setHovered] = useState(false);
 
     const changeLabelColor = () => {
@@ -14,7 +14,7 @@ const Tracklist = ({tracks}) => {
         color: hovered ? 'blue' : '',
     }
 
-    const songs = returnListOf(tracks, '+', changeLabelColor);
+    const songs = returnListOf(tracks, '+', changeLabelColor, onAdd);
 
     return (
         <div>

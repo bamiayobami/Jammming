@@ -1,9 +1,9 @@
 import Track from "../components/Track";
 
-const returnListOf = (songs, sign, changeLabelColor) => {
-    return  songs.map( (song, index) => {
+const returnListOf = (tracks, sign, changeLabelColor, updatePlayList) => {
+    return  tracks.map( (track, index) => {
        return  <li key={index}>
-            <Track song={song} sign={sign} onHover={changeLabelColor}/>
+            <Track track={track} sign={sign} onHover={changeLabelColor} onClick={updatePlayList} />
         </li>
     })
 }
