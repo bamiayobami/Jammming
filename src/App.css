@@ -1,0 +1,96 @@
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  color: #fff;
+  font-family: Inter, Avenir, Helvetica, Arial, sans-serif;
+  background-image: linear-gradient(to bottom, #020917, #101725);
+}
+/*
+  background-image: linear-gradient(to bottom, hsla(120,100%,25%,0.3), hsla(120,100%,75%,0.3));
+  background-image: linear-gradient(to bottom, #020917, #101725);
+*/
+header {
+  margin-bottom: 2rem;
+}
+
+form, .results-playlists > div {
+  border: thin dashed lightblue;
+  border-radius: 1rem;
+  margin: .25rem;
+}
+
+.content {
+  display: flex;
+  min-height: 60vh;
+  line-height: 1.1;
+  text-align: center;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.content h1 {
+  font-size: 3.6rem;
+  font-weight: 700;
+}
+
+.content p {
+  font-size: 1.2rem;
+  font-weight: 400;
+  opacity: 0.5;
+}
+
+.results-playlists {
+  display: grid;
+  grid-template-columns: 50% 50%;
+}
+
+ul {
+  list-style-type: none;
+}
+
+li {
+    padding-bottom: 1rem;
+    padding-top: 1rem;
+    width: 95%;
+    margin-left: 0;
+    padding: 0;
+}
+
+hr {
+  border: thin dashed blue;
+  opacity: 0.5;
+}
+
+.right {
+  float: right;
+}
+
+button, button:active {
+  display: block;
+  background-color: darkblue;
+  color:beige;
+  width: 20vw;
+  height: 3rem;
+  margin: auto;
+  border-radius: 8px;
+  font-size: 14px;
+}
+button:hover {
+  color: white;
+  border: thin dashed lightblue;
+  font-size: 16px;
+  cursor: pointer;
+}
+button:active {
+  font-size: 14px;
+  width: 19.5vw;
+  cursor: pointer;
+}
+
+footer {
+  text-align: center;
+  margin-top: 2rem;
+}
