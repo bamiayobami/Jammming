@@ -1,3 +1,10 @@
+const base_url = 'https://api.spotify.com';
+
+const search_endpoint =
+'/v1/search?type=TRACK';
+
+'&limit=20&query=';
+
 
 const fetchList = async (searchInput: string, filter: string) => {
     const url = 'searchInput + filter';

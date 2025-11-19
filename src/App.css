@@ -64,6 +64,24 @@ hr {
   opacity: 0.5;
 }
 
+input#playlist-name {
+  width: 60%;
+  height: 2rem;
+  border-style: none none dashed none;
+  border-width: thin;
+  border-color: blue;
+  background-color: transparent;
+  color: beige;
+  font-size: 16px;
+  padding-left: 8px;
+  margin-bottom: 1rem;
+  margin: auto auto;
+  display: block;
+}
+input#playlist-name::placeholder {
+  color: lightgray;
+}
+
 .right {
   float: right;
 }

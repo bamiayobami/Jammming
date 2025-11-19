@@ -23,16 +23,19 @@ const App = () => {
   }
 
   const updatePlayList = (track, action) => {
-    // action: 'add' | 'remove'
+    // action: 'add' | 'remove' | 'clear'
     if (action === 'add') {
       // add track to playList
       if (!playList.find( item => item.id === track.id)) {
         setPlaylist([...playList, track]);
       } else { alert('Track already in playlist'); }
-    } else if (action === 'remove') {
+    } if (action === 'remove') {
       // remove track from playList
       const updatedList = playList.filter( item => item.id !== track.id);
       setPlaylist(updatedList);
+    } else if (action === 'clear') {
+      // clear entire playList
+      setPlaylist([]);
     }
   }
 

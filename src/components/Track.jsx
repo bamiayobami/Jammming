@@ -17,3 +17,15 @@ export default function Track({track, sign, onHover, onClick}) {
         </>
     )
 }
+
+// import Track from "../components/Track";
+
+const returnListOf = (tracks, sign, changeLabelColor, updatePlayList) => {
+    return  tracks.map( (track, index) => {
+       return  <li key={index}> {/* change to track.id later */}
+            <Track track={track} sign={sign} onHover={changeLabelColor} onClick={updatePlayList} />
+        </li>
+    })
+}
+
+export { returnListOf };

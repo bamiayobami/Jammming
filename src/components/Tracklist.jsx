@@ -1,7 +1,5 @@
 import {useState} from 'react';
-
-import { returnListOf } from '../utils/returnListOf';
-import './SearchResults.css';
+import { returnListOf } from './Track';
 
 const Tracklist = ({tracks, onAdd}) => {
     const [hovered, setHovered] = useState(false);
