@@ -5,21 +5,14 @@ import SearchResults from './components/SearchResults';
 import {useState} from 'react';
 import fetchList from './utils/fetchList';
 
-import data from './utils/mockData.js';
-
-
-
 const App = () => {
-  const [trackList, setTrackList] = useState(data.tracks);
+  const [trackList, setTrackList] = useState([]);
 
   const [playList, setPlaylist] = useState([]);
 
   const fetchListArray = async (searchInput, filter) => {
-    const result = await fetchList(searchInput, filter); // postulate;
-
-     
-     alert(searchInput + ', ' + filter) // in place of console
-      // setListArray(result) postulate;
+    const tracks = await fetchList(searchInput, filter);
+    setTrackList(tracks);
   }
 
   const updatePlayList = (track, action) => {

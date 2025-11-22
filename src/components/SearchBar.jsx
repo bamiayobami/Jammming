@@ -5,7 +5,6 @@ import './SearchBar.css';
 const SearchBar = ({onFetchList}) => {
   const [searchValue, setSearchValue] = useState('');
   const [filter, setFilter] = useState('title');
-
   const handleChange = (event) => {
     setSearchValue(event.target.value);
   }
@@ -15,8 +14,12 @@ const SearchBar = ({onFetchList}) => {
   }
 
   const handleSubmit = (event) => {
-    // potulation
-    onFetchList(searchValue, filter); // postulste;
+    if(searchValue.trim() === '') {
+      alert('Please enter a search term.');
+      event.preventDefault();
+      return;
+    }
+    onFetchList(searchValue, filter);
     event.preventDefault();
   }
 
@@ -24,7 +27,7 @@ const SearchBar = ({onFetchList}) => {
         <form onSubmit={handleSubmit}>
           <div>
             <label>
-              <input type="text" name="searchValue" placeholder="Search by Title" 
+              <input type="text" name="searchValue" placeholder={`Search by ${filter.toUpperCase()}`} 
               value={searchValue} onChange={handleChange} /> 
             </label> <br/><br/>
             <label>
@@ -33,15 +36,15 @@ const SearchBar = ({onFetchList}) => {
           </div>
           <div>
             <h4>Change Filter:</h4>
-            <label>
+            <label className='radioText'>
               <input type="radio" name="filter" value="title" 
               checked={ filter === 'title' }
               onChange={handleFilter} /> &nbsp;
               by song title 
             </label> &nbsp; &nbsp;
-            <label >
-              <input type="radio" name="filter" value="artiste"
-              checked={ filter === 'artiste' }
+            <label className='radioText'>
+              <input type="radio" name="filter" value="artist"
+              checked={ filter === 'artist' }
               onChange = {handleFilter} /> &nbsp;
               by artiste name 
             </label>

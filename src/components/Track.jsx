@@ -22,7 +22,7 @@ export default function Track({track, sign, onHover, onClick}) {
 
 const returnListOf = (tracks, sign, changeLabelColor, updatePlayList) => {
     return  tracks.map( (track, index) => {
-       return  <li key={index}> {/* change to track.id later */}
+       return  <li key={track.id}>
             <Track track={track} sign={sign} onHover={changeLabelColor} onClick={updatePlayList} />
         </li>
     })
